@@ -10,13 +10,14 @@ while True:
     choice = input("Enter choice: ")
 
     if choice == "1":
+        category = input("Enter category (Food/Transport/Shopping/Entertainment/Other): ")
         expense_name = input("Enter expense name: ")
         amount = float(input("Enter amount: "))
 
         today = datetime.now().strftime("%d-%m-%Y")
 
         with open("expenses.txt", "a") as file:
-            file.write(f"{today}, {expense_name}, {amount}\n")
+            file.write(f"{today}, {category}, {expense_name}, {amount}\n")
 
         print("Expense Saved!")
 
@@ -33,13 +34,19 @@ while True:
             for line in file:
                 parts = line.strip().split(",")
 
-                if len(parts) == 3:
+                if len(parts) == 4:
+                    amount = float(parts[3])
+
+                elif len(parts) == 3:
                     amount = float(parts[2])
-                    total = total + amount
 
                 elif len(parts) == 2:
                     amount = float(parts[1])
-                    total = total + amount
+
+                else:
+                    continue
+
+                total = total + amount
 
         print(f"\nTotal Spending: ₹{total}")
 
