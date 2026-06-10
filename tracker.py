@@ -5,7 +5,8 @@ while True:
     print("1. Add Expense")
     print("2. View Expenses")
     print("3. View Total Spending")
-    print("4. Exit")
+    print("4. View Spending By Category")
+    print("5. Exit")
 
     choice = input("Enter choice: ")
 
@@ -36,13 +37,10 @@ while True:
 
                 if len(parts) == 4:
                     amount = float(parts[3])
-
                 elif len(parts) == 3:
                     amount = float(parts[2])
-
                 elif len(parts) == 2:
                     amount = float(parts[1])
-
                 else:
                     continue
 
@@ -51,6 +49,27 @@ while True:
         print(f"\nTotal Spending: ₹{total}")
 
     elif choice == "4":
+        category_totals = {}
+
+        with open("expenses.txt", "r") as file:
+            for line in file:
+                parts = line.strip().split(",")
+
+                if len(parts) == 4:
+                    category = parts[1].strip()
+                    amount = float(parts[3])
+
+                    if category in category_totals:
+                        category_totals[category] = category_totals[category] + amount
+                    else:
+                        category_totals[category] = amount
+
+        print("\nSpending By Category:")
+
+        for category, total in category_totals.items():
+            print(f"{category}: ₹{total}")
+
+    elif choice == "5":
         print("Goodbye!")
         break
 
