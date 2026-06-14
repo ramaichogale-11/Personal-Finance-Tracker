@@ -1,6 +1,6 @@
 # Trackly - A Personal Finance Tracker
 
-A Python-based personal finance tracker that helps users record expenses, view transaction history, and calculate total spending.
+Trackly is a student-friendly finance tracking app built to help users record expenses, set budgets, analyze spending habits, and make smarter financial decisions.
 
 ## Features
 
@@ -12,9 +12,11 @@ A Python-based personal finance tracker that helps users record expenses, view t
 
 ## Technologies Used
 
-- Python
-- File Handling
-- GitHub
+- React Native
+- Expo
+- TypeScript
+- Express
+- PostgreSQL / Drizzle
 
 ## Future Improvements
 
