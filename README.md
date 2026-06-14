@@ -1,4 +1,4 @@
-# Personal Finance Tracker
+# Trackly - A Personal Finance Tracker
 
 A Python-based personal finance tracker that helps users record expenses, view transaction history, and calculate total spending.
 
